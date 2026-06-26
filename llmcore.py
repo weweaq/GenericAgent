@@ -845,7 +845,7 @@ Follow these steps to think and act:
             user += str(m['content']) + "\n"
             self.total_cd_tokens += len(user) // 3
         if self.total_cd_tokens > 9000: self.last_tools = ''
-        user += "=== ASSISTANT ===\n" 
+        user += "=== ASSISTANT ===\n"
         return system + user
 
     def _parse_mixed_response(self, text):

@@ -1,5 +1,8 @@
 @echo off
 cd /d "%~dp0"
-set "PY=.venv\Scripts\python.exe"
+set "PY=python"
 if not exist "%PY%" set "PY=python"
-"%PY%" -m ga_cli %*
+echo ╔══════════════════════════════════════╗
+echo ║   GenericAgent - Launching GUI...   ║
+echo ╚══════════════════════════════════════╝
+"%PY%" "%~dp0launch.pyw" %*

@@ -170,7 +170,8 @@ class WxBotClient:
             except Exception as e:
                 last_err = e
                 if 'client error' in str(e) or attempt >= 3: break
-                print(f'[WX] CDN upload retry {attempt}: {e}', file=sys.__stdout__)
+                try: print(f'[WX] CDN upload retry {attempt}: {e}', file=sys.__stdout__)
+                except (OSError, ValueError): pass
         raise last_err
 
     def _send_media(self, to_user_id, file_path, media_type, item_type, item_key, context_token=''):
@@ -286,9 +287,12 @@ def _dl_media(items):
                 pt = AES.new(aes_key, AES.MODE_ECB).decrypt(ct); pt = pt[:-pt[-1]]
                 fname = sub.get('file_name') or f'{uuid.uuid4().hex[:8]}{ext or ".bin"}'
                 p = os.path.join(_TEMP_DIR, fname); open(p, 'wb').write(pt)
-                paths.append(p); print(f'[WX] media saved: {fname}', file=sys.__stdout__)
+                paths.append(p)
+                try: print(f'[WX] media saved: {fname}', file=sys.__stdout__)
+                except (OSError, ValueError): pass
             except Exception as e:
-                print(f'[WX] media dl err ({key}): {e}', file=sys.__stdout__)
+                try: print(f'[WX] media dl err ({key}): {e}', file=sys.__stdout__)
+                except (OSError, ValueError): pass
             break  # one media per item
     return paths
 
@@ -340,7 +344,8 @@ def on_message(bot, msg):
     if not text and not media_paths: return
     if media_paths:
         text = (text + '\n' if text else '') + '\n'.join(f'[用户发送文件: {p}]' for p in media_paths)
-    print(f'[WX] 收到: {text[:80]}', file=sys.__stdout__)
+    try: print(f'[WX] 收到: {text[:80]}', file=sys.__stdout__)
+    except (OSError, ValueError): pass
 
     # Commands
     if text in ('/stop', '/abort'):
@@ -378,10 +383,12 @@ def on_message(bot, msg):
             s = text.strip(); t0 = time.time()
             try:
                 bot.send_text(uid, s, context_token=ctx)
-                print(f'[WX] send ok len={len(s)} dt={time.time()-t0:.1f}s', file=sys.__stdout__)
+                try: print(f'[WX] send ok len={len(s)} dt={time.time()-t0:.1f}s', file=sys.__stdout__)
+                except (OSError, ValueError): pass
                 return True
             except Exception as e:
-                print(f'[WX] send err len={len(s)} dt={time.time()-t0:.1f}s {type(e).__name__}: {e}', file=sys.__stdout__)
+                try: print(f'[WX] send err len={len(s)} dt={time.time()-t0:.1f}s {type(e).__name__}: {e}', file=sys.__stdout__)
+                except (OSError, ValueError): pass
                 return False
         def _send(show):
             nonlocal mi, last_send
@@ -401,8 +408,10 @@ def on_message(bot, msg):
                     turn = item['turn']; done.append(lastdone)
                 if len(done) > sent:
                     merged = _clean('\n\n'.join(done[sent:]))
-                    print(f'[WX] turns={len(done)}/{len(done)+1} sent={sent} sending={len(done)-sent}', file=sys.__stdout__)
-                    if _send(merged): sent = len(done)
+                    try: print(f'[WX] turns={len(done)}/{len(done)+1} sent={sent} sending={len(done)-sent}', file=sys.__stdout__)
+                    except (OSError, ValueError): pass
+                    if _send(merged):
+                        sent = len(done)
         except queue.Empty: result = '[超时]'
         _typing_stop.set()
 
@@ -423,15 +432,22 @@ def on_message(bot, msg):
                 sender = bot.send_video if ext in {'.mp4', '.mov', '.m4v', '.webm'} else \
                          bot.send_image if ext in {'.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp'} else bot.send_file
                 sender(uid, fpath, context_token=ctx)
-                print(f'[WX] sent media: {fpath}', file=sys.__stdout__)
-            except Exception as e: print(f'[WX] send media err: {e}', file=sys.__stdout__)
+                try: print(f'[WX] sent media: {fpath}', file=sys.__stdout__)
+                except (OSError, ValueError): pass
+            except Exception as e:
+                try: print(f'[WX] send media err: {e}', file=sys.__stdout__)
+                except (OSError, ValueError): pass
 
     threading.Thread(target=_handle, daemon=True).start()
 
 if __name__ == '__main__':
     _do_relogin = '--relogin' in sys.argv
-    try: _lock = socket.socket(socket.AF_INET, socket.SOCK_STREAM); _lock.bind(('127.0.0.1', 19531))
-    except OSError: print('[WeChat] Another instance running, exiting.'); sys.exit(1)
+    _lock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    _lock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    try:
+        _lock.bind(('0.0.0.0', 19531))
+    except OSError:
+        print('[WeChat] Another instance running, exiting.'); sys.exit(1)
     _logf = open(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'temp', 'wechatapp.log'), 'a', encoding='utf-8', buffering=1)
     sys.stdout = sys.stderr = _logf
     print(f'[NEW] Process starting {time.strftime("%m-%d %H:%M")}')
@@ -446,9 +462,11 @@ if __name__ == '__main__':
         finally:
             sys.stdout = sys.stderr = _logf
     threading.Thread(target=agent.run, daemon=True).start()
-    print(f'WeChat Bot 已启动 (bot_id={bot.bot_id})', file=sys.__stdout__)
+    try: print(f'WeChat Bot 已启动 (bot_id={bot.bot_id})', file=sys.__stdout__)
+    except (OSError, ValueError): pass
     try:
         bot.run_loop(on_message)
     except AuthExpired:
-        print('[Bot] token expired, exit.', file=sys.__stdout__)
+        try: print('[Bot] token expired, exit.', file=sys.__stdout__)
+        except (OSError, ValueError): pass
         sys.exit(2)

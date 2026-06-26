@@ -9,6 +9,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from agent_loop import BaseHandler, StepOutcome, json_default
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
+from ga_pipeline import EventPipeline, WatchdogManager, GAWatchdogIntegration, get_watchdog_prompt_injection
+
 def safe_print(*args, **kwargs):
     try: print(*args, **kwargs)
     except: pass
@@ -273,9 +275,14 @@ class GenericAgentHandler(BaseHandler):
         self._done_hooks = []
         self.print = safe_print
 
+        # Watchdog + Event Pipeline (cyberboss 8s/45s pattern)
+        self.pipeline = EventPipeline()
+        self.watchdog = WatchdogManager(pipeline=self.pipeline)
+        self._wd_integration = GAWatchdogIntegration(self)
+
     def _get_abs_path(self, path):
         if not path: return ""
-        return os.path.abspath(os.path.join(self.cwd, path))   
+        return os.path.abspath(os.path.join(self.cwd, path))
 
     def _extract_code_block(self, response, code_type):
         code_type = {'python':'python|py', 'powershell':'powershell|ps1|pwsh', 'bash':'bash|sh|shell'}.get(code_type, re.escape(code_type))
@@ -520,6 +527,29 @@ class GenericAgentHandler(BaseHandler):
         else: result = "Memory Management SOP not found. Do not update memory."
         return StepOutcome(result, next_prompt=prompt)
 
+    def do_send_group_message(self, args, response):
+        """主动向飞书社交群发消息"""
+        text = args.get('text', '')
+        if not text:
+            return StepOutcome('', next_prompt='必须提供text参数')
+        try:
+            from frontends.fsapp import send_group_message
+            send_group_message(text)
+            return StepOutcome(f'消息已发送: {text[:60]}...', next_prompt='\n')
+        except Exception as e:
+            return StepOutcome('', next_prompt=f'发送失败: {e}')
+
+    def do_send_social_greeting(self, args, response):
+        """Send a random or custom social greeting to the configured group chat, with optional @mention."""
+        message = args.get('message', '')
+        mention_name = args.get('mention_name', '')
+        try:
+            from tools.social import tool_send_social_greeting
+            result = tool_send_social_greeting(message=message, mention_name=mention_name)
+            return StepOutcome(result, next_prompt='\n')
+        except Exception as e:
+            return StepOutcome('', next_prompt=f'发送社交问候失败: {e}')
+
     def _fold_earlier(self, lines):
         FALLBACK = '直接回答了用户问题'
         parts, cnt, last = [], 0, ''
@@ -577,7 +607,11 @@ class GenericAgentHandler(BaseHandler):
         injprompt = consume_file(self.parent.task_dir, '_intervene')
         if injkeyinfo: self.working['key_info'] = self.working.get('key_info', '') + f"\n[MASTER] {injkeyinfo}"
         if injprompt: next_prompt += f"\n\n[MASTER] {injprompt}\n"
-        for hook in list(getattr(self.parent, '_turn_end_hooks', {}).values()): hook(locals())  # current readonly
+        wd_prompt = get_watchdog_prompt_injection(self)
+        if wd_prompt:
+            next_prompt += "\n\n" + wd_prompt
+        self._wd_integration.on_turn_end(turn)
+        for hook in list(getattr(self.parent, '_turn_end_hooks', {}).values()): hook(locals())
         return next_prompt
 
 def get_global_memory():

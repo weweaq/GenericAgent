@@ -6,6 +6,7 @@ sys.path.insert(0, PROJECT_ROOT)
 os.chdir(PROJECT_ROOT)
 
 import traceback
+import requests as _requests
 import lark_oapi as lark
 from lark_oapi.api.im.v1 import *
 
@@ -80,6 +81,155 @@ def _ensure_runtime_paths():
 _ensure_runtime_paths()
 from agentmain import GeneraticAgent
 from frontends.chatapp_common import AgentChatMixin, FILE_HINT, split_text
+
+_TOKEN_CACHE = {"token": None, "expire_at": 0.0}
+
+def _get_tenant_token():
+    if _TOKEN_CACHE["token"] and time.time() < _TOKEN_CACHE["expire_at"] - 300:
+        return _TOKEN_CACHE["token"]
+    try:
+        resp = _requests.post(
+            "https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal",
+            json={"app_id": APP_ID, "app_secret": APP_SECRET},
+            timeout=10
+        )
+        data = resp.json()
+        if data.get("code") != 0:
+            print(f"[get_tenant_token] 失败: {data}")
+            return None
+        _TOKEN_CACHE["token"] = data["tenant_access_token"]
+        _TOKEN_CACHE["expire_at"] = time.time() + data.get("expire", 7200)
+        return _TOKEN_CACHE["token"]
+    except Exception as e:
+        print(f"[get_tenant_token] 异常: {e}")
+        return None
+
+def get_chat_history(chat_id, page_size=50, start_time=None, end_time=None):
+    token = _get_tenant_token()
+    if not token:
+        return {"code": -1, "msg": "获取 tenant_access_token 失败"}
+    params = {
+        "container_id_type": "chat",
+        "container_id": chat_id,
+        "page_size": page_size,
+        "sort_type": "ByCreateTimeAsc",
+    }
+    if start_time is not None: params["start_time"] = str(start_time)
+    if end_time is not None:   params["end_time"]   = str(end_time)
+    items = []
+    while True:
+        try:
+            resp = _requests.get(
+                "https://open.feishu.cn/open-apis/im/v1/messages",
+                headers={"Authorization": f"Bearer {token}"},
+                params=params,
+                timeout=15
+            )
+            data = resp.json()
+        except Exception as e:
+            return {"code": -1, "msg": f"请求异常: {e}"}
+        if data.get("code") != 0:
+            return data
+        items.extend(data["data"]["items"])
+        if not data["data"].get("has_more"):
+            break
+        params["page_token"] = data["data"]["page_token"]
+    return {"code": 0, "data": {"items": items}}
+
+# ── Agent互聊模式 ──
+AGENT_CHAT_FILE = os.path.join(PROJECT_ROOT, "temp", "agentchat.json")
+_agent_chat_enabled = None
+
+def _get_agentchat():
+    global _agent_chat_enabled
+    if _agent_chat_enabled is not None:
+        return _agent_chat_enabled
+    try:
+        with open(AGENT_CHAT_FILE, 'r', encoding='utf-8') as f:
+            _agent_chat_enabled = json.load(f).get("enabled", False)
+    except:
+        _agent_chat_enabled = False
+    return _agent_chat_enabled
+
+def _set_agentchat(enabled):
+    global _agent_chat_enabled
+    _agent_chat_enabled = enabled
+    os.makedirs(os.path.dirname(AGENT_CHAT_FILE), exist_ok=True)
+    with open(AGENT_CHAT_FILE, 'w', encoding='utf-8') as f:
+        json.dump({"enabled": enabled, "updated_at": time.time()}, f, ensure_ascii=False)
+
+# ── 已发送消息 ID 追踪（防自消息 echo）──
+_sent_msg_ids = set()
+_sent_msg_ids_lock = threading.Lock()
+_SENT_MSG_MAX = 500
+
+def _track_sent(msg_id):
+    if msg_id:
+        with _sent_msg_ids_lock:
+            _sent_msg_ids.add(msg_id)
+            if len(_sent_msg_ids) > _SENT_MSG_MAX * 2:
+                _sent_msg_ids.clear()
+
+def _is_self_sent(msg_id):
+    with _sent_msg_ids_lock:
+        return msg_id in _sent_msg_ids
+
+_poll_last_seen_time = "0"
+_POLL_CFG_FILE = os.path.join(PROJECT_ROOT, "sche_tasks", "agentchat_poll.json")
+
+def _load_poll_cfg():
+    try:
+        with open(_POLL_CFG_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except:
+        return {}
+
+def _poll_agentchat_loop():
+    """后台线程：轮询群消息，检测其他Agent的新消息"""
+    global _poll_last_seen_time
+    cfg = _load_poll_cfg()
+    poll_interval = int(cfg.get("poll_interval_seconds", 15))
+    page_size = int(cfg.get("page_size", 10))
+    start_time = cfg.get("start_time", 1678812018)
+    end_time = cfg.get("end_time", 1778812018)
+    enabled = cfg.get("enabled", True)
+    if not enabled:
+        print("[poll_agentchat] 已禁用 (sche_tasks/agentchat_poll.json enabled=false)", flush=True)
+        return
+    print(f"[poll_agentchat] 轮询线程已启动，{poll_interval}s间隔", flush=True)
+    time.sleep(10)
+    while True:
+        try:
+            if not _get_agentchat():
+                _poll_last_seen_time = "0"
+                time.sleep(10)
+                continue
+            r = get_chat_history(SOCIAL_GROUP_ID, page_size=page_size,
+                                  start_time=start_time, end_time=end_time)
+            if r.get("code") != 0:
+                time.sleep(poll_interval)
+                continue
+            items = r.get("data", {}).get("items", [])
+            if not items:
+                time.sleep(poll_interval)
+                continue
+            latest_time = items[-1]["create_time"]
+            if latest_time <= _poll_last_seen_time and _poll_last_seen_time != "0":
+                time.sleep(poll_interval)
+                continue
+            for msg in items:
+                if msg["create_time"] <= _poll_last_seen_time:
+                    continue
+                s = msg.get("sender", {})
+                if s.get("sender_type") == "app" and s.get("id") != APP_ID:
+                    content = msg.get("body", {}).get("content", "")
+                    print(f"[poll_agentchat] 检测到小小怪新消息: {content[:60]}", flush=True)
+                    agent.put_task(f"[群消息-轮询] 小小怪发了新消息: {content}\n你在群里@它，请处理。", source="feishu")
+                    break
+            _poll_last_seen_time = latest_time
+        except Exception as e:
+            print(f"[poll_agentchat] error: {e}", flush=True)
+        time.sleep(poll_interval)
 
 _TAG_PATS = [r"<" + t + r">.*?</" + t + r">" for t in ("thinking", "summary", "tool_use", "file_content")]
 _IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".webp", ".ico", ".tiff", ".tif"}
@@ -166,6 +316,17 @@ def _parse_json(raw):
     except Exception:
         return {}
 
+
+def _persist_recipient(chat_id, open_id):
+    """保存飞书接收者ID到文件，供定时任务等主动推送使用"""
+    import json
+    try:
+        fpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'temp', 'last_feishu_recipient.json')
+        data = {"chat_id": chat_id or "", "open_id": open_id, "updated_at": time.time()}
+        with open(fpath, 'w', encoding='utf-8') as f:
+            json.dump(data, f)
+    except Exception as e:
+        print(f"[persist] 保存接收者ID失败: {e}")
 
 def _extract_share_card_content(content_json, msg_type):
     parts = []
@@ -369,6 +530,20 @@ def get_agent():
             raise
 
 
+# ── 主动社交配置（从 sche_tasks/ 集中读取）──
+_SOCIAL_CFG = {}
+_SOCIAL_CFG_FILE = os.path.join(PROJECT_ROOT, "sche_tasks", "social.json")
+try:
+    with open(_SOCIAL_CFG_FILE, 'r', encoding='utf-8') as _f:
+        _SOCIAL_CFG = json.load(_f)
+except:
+    pass
+SOCIAL_GROUP_ID = _SOCIAL_CFG.get("group_id", "oc_bd650e1d5ccf82d1cd9f7afaa5fccb4a")
+SOCIAL_INTERVAL = int(_SOCIAL_CFG.get("interval_seconds", 1800))
+SOCIAL_INITIAL_DELAY = int(_SOCIAL_CFG.get("initial_delay_seconds", 300))
+_SOCIAL_ENABLED = _SOCIAL_CFG.get("enabled", True)
+
+
 def create_client():
     return lark.Client.builder().app_id(APP_ID).app_secret(APP_SECRET).log_level(lark.LogLevel.INFO).build()
 
@@ -445,12 +620,32 @@ def _patch_card(message_id, card_json):
         return False
 
 
-def send_message(receive_id, content, msg_type="text", use_card=False, receive_id_type="open_id"):
+def send_message(receive_id, content, msg_type="text", use_card=False, receive_id_type="open_id", to_mention_open_id=None):
     if use_card:
-        return _send_raw(receive_id, _card(content), "interactive", receive_id_type)
-    if msg_type == "text":
-        return _send_raw(receive_id, json.dumps({"text": content}, ensure_ascii=False), "text", receive_id_type)
-    return _send_raw(receive_id, content, msg_type, receive_id_type)
+        msg_id = _send_raw(receive_id, _card(content), "interactive", receive_id_type)
+    elif msg_type == "text":
+        if to_mention_open_id:
+            text_content = json.dumps({
+                "text": f"@_user_1 {content}",
+                "mentions": [{"key": "@_user_1", "id": {"open_id": to_mention_open_id}}]
+            }, ensure_ascii=False)
+        else:
+            text_content = json.dumps({"text": content}, ensure_ascii=False)
+        msg_id = _send_raw(receive_id, text_content, "text", receive_id_type)
+    else:
+        msg_id = _send_raw(receive_id, content, msg_type, receive_id_type)
+    _track_sent(msg_id)
+    return msg_id
+
+
+def send_group_message(text, to_mention_open_id=""):
+    """向配置的社交群主动发送文本消息（供agent tool调用）"""
+    return send_message(SOCIAL_GROUP_ID, text, receive_id_type="chat_id", to_mention_open_id=to_mention_open_id)
+
+
+# 向 tools.social 注入 send_message 引用，避免模块重入导致 client 被重置
+from tools.social import set_social_config as _set_social_config
+_set_social_config(send_func=send_message)
 
 
 def update_message(message_id, content):
@@ -724,6 +919,50 @@ def _make_task_hook(card, task_id, on_final):
 class FeishuApp(AgentChatMixin):
     label, source, split_limit = "Feishu", "feishu", 4000
 
+    async def handle_command(self, chat_id, cmd, **ctx):
+        parts = (cmd or "").split()
+        op = (parts[0] if parts else "").lower()
+        if op == "/social":
+            from tools.social import tool_send_social_greeting
+            mention_name = parts[1] if len(parts) > 1 else ""
+            result = tool_send_social_greeting(mention_name=mention_name)
+            await self.send_text(chat_id, result, **ctx)
+        elif op == "/history":
+            n = int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else 10
+            result = get_chat_history(
+                SOCIAL_GROUP_ID,
+                page_size=min(n, 50),
+                start_time=1678812018,
+                end_time=1778812018
+            )
+            if result.get("code") != 0:
+                await self.send_text(chat_id, f"获取历史消息失败: {result.get('msg', repr(result))}", **ctx)
+                return
+            items = result["data"]["items"]
+            if not items:
+                await self.send_text(chat_id, "该时间范围内没有消息记录。", **ctx)
+                return
+            text = f"[群聊历史] 共 {len(items)} 条消息\n群ID: {SOCIAL_GROUP_ID}\n\n"
+            for msg in items:
+                sender = msg.get("sender", {})
+                text += f"[{msg.get('create_time','?')}] {sender.get('sender_type','?')}/{sender.get('id','?')} ({msg.get('msg_type','?')}): {msg.get('body',{}).get('content','')}\n"
+            await self.send_text(chat_id, "历史消息已获取，正在分析...", **ctx)
+            self.agent.put_task(f"以下是群聊历史消息，请分析：\n{text}", source="feishu")
+        elif op == "/agentchat":
+            sub = parts[1] if len(parts) > 1 else ""
+            if sub == "on":
+                _set_agentchat(True)
+                await self.send_text(chat_id, "🤖 Agent互聊模式已开启！将自动回复@自己的其他Agent。", **ctx)
+                self.agent.put_task("[系统] Agent互聊模式已开启，你可以主动回复群里@你的其他Agent。", source="system")
+            elif sub == "off":
+                _set_agentchat(False)
+                await self.send_text(chat_id, "🤖 Agent互聊模式已关闭。", **ctx)
+            else:
+                st = "已开启" if _get_agentchat() else "已关闭"
+                await self.send_text(chat_id, f"🤖 Agent互聊模式: {st}\n用法: /agentchat on|off", **ctx)
+        else:
+            await super().handle_command(chat_id, cmd, **ctx)
+
     async def send_text(self, chat_id, content, *, receive_id=None, receive_id_type="open_id", **_):
         rid = receive_id or chat_id
         for part in split_text(content, self.split_limit):
@@ -814,17 +1053,28 @@ def handle_message(data):
     if not _claim_message_once(message_id):
         print(f"忽略重复飞书消息: {message_id}")
         return
+    if _is_self_sent(message_id):
+        print(f"[fsapp] 跳过自己发的消息 (msg_id={message_id[:20]})")
+        return
     open_id = sender.sender_id.open_id
     chat_id = message.chat_id
+    sender_type = sender.sender_type
+    # 持久化接收者ID，供定时任务等主动推送使用
+    _persist_recipient(chat_id, open_id)
+    # 权限检查 + Agent 聊天模式
     if not PUBLIC_ACCESS and open_id not in ALLOWED_USERS:
-        print(f"未授权用户: {open_id}")
-        return
+        if not (_get_agentchat() and sender_type == "app"):
+            print(f"未授权用户: {open_id}")
+            return
     user_input, image_paths = _build_user_message(message)
+    # 提取消息中被 @ 的人（群聊中需要 @ 回去）
+    # 群聊中有人 @ 了 bot → 回复时 @ 回去
+    mention_open_id = open_id if (chat_id and message.mentions) else ""
     if not user_input:
         if chat_id:
-            send_message(chat_id, f"⚠️ 暂不支持处理此类飞书消息：{message.message_type}", receive_id_type="chat_id")
+            send_message(chat_id, f"⚠️ 暂不支持处理此类飞书消息：{message.message_type}", receive_id_type="chat_id", to_mention_open_id=mention_open_id)
         else:
-            send_message(open_id, f"⚠️ 暂不支持处理此类飞书消息：{message.message_type}")
+            send_message(open_id, f"⚠️ 暂不支持处理此类飞书消息：{message.message_type}", to_mention_open_id=mention_open_id)
         return
     print(f"收到消息 [{open_id}] ({message.message_type}, {len(image_paths)} images): {user_input[:200]}")
     receive_id = chat_id or open_id
@@ -833,7 +1083,7 @@ def handle_message(data):
     if message.message_type == "text" and user_input.startswith("/"):
         threading.Thread(
             target=_run_async,
-            args=(get_app().handle_command(chat_key, user_input, receive_id=receive_id, receive_id_type=receive_id_type),),
+            args=(get_app().handle_command(chat_key, user_input, receive_id=receive_id, receive_id_type=receive_id_type, mention_open_id=mention_open_id),),
             daemon=True,
         ).start()
         return
@@ -844,6 +1094,12 @@ def handle_message(data):
     ).start()
 
 
+def _initiative_social_timer():
+    """后台线程：定时主动在群里找小小怪聊天。直接发消息，不依赖LLM执行code。"""
+    from tools.social import start_social_timer
+    start_social_timer(stop_event=None)
+
+
 def main():
     global client, APP_ID, APP_SECRET, ALLOWED_USERS, PUBLIC_ACCESS, CONFIG_PATH
     APP_ID, APP_SECRET, ALLOWED_USERS, PUBLIC_ACCESS, CONFIG_PATH = _feishu_config()
@@ -851,12 +1107,20 @@ def main():
         print(f"错误: 请在 mykey 配置中填写 fs_app_id 和 fs_app_secret\n配置文件: {CONFIG_PATH}", flush=True)
         sys.exit(1)
     handler = lark.EventDispatcherHandler.builder("", "").register_p2_im_message_receive_v1(handle_message).build()
+    print("=" * 50 + "\n飞书 Agent 已启动（长连接模式）\n" + f"App ID: {APP_ID}\n配置: {CONFIG_PATH}\n等待消息...\n" + "=" * 50, flush=True)
+    if _SOCIAL_ENABLED:
+        threading.Thread(target=_initiative_social_timer, daemon=True, name="social_timer").start()
+        print("[main] 社交问候已启用", flush=True)
+        print(f"[main] 社交定时器: 初始延时{SOCIAL_INITIAL_DELAY}s, 间隔{SOCIAL_INTERVAL}s", flush=True)
+    else:
+        print("[main] 社交问候已禁用 (sche_tasks/social.json enabled=false)", flush=True)
+    threading.Thread(target=_poll_agentchat_loop, daemon=True, name="agentchat_poll").start()
     retry_delay = 5
     while True:
         try:
             client = create_client()
             cli = lark.ws.Client(APP_ID, APP_SECRET, event_handler=handler, log_level=lark.LogLevel.INFO)
-            print("=" * 50 + "\n飞书 Agent 已启动（长连接模式）\n" + f"App ID: {APP_ID}\n配置: {CONFIG_PATH}\n等待消息...\n" + "=" * 50, flush=True)
+            print("[main] 飞书长连接已连接", flush=True)
             cli.start()
             retry_delay = 5
         except KeyboardInterrupt:

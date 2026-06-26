@@ -69,5 +69,20 @@
     "name": "start_long_term_update",
     "description": "准备开始提炼记忆。发现值得长期记忆的信息（环境事实/用户偏好/避坑经验）时调用此工具。已记忆更新或在自主流程内时无需调用。超15轮完成的任务必须调用以沉淀经验",
     "parameters": {"type": "object", "properties": {}}}
+  },
+  {"type": "function", "function": {
+    "name": "send_group_message",
+    "description": "主动向飞书社交群发送文本消息。用于主动发布公告、更新或通知到群聊。",
+    "parameters": {"type": "object", "properties": {
+      "text": {"type": "string", "description": "要发送到群里的消息文本内容"}},
+      "required": ["text"]}}
+  },
+  {"type": "function", "function": {
+    "name": "send_social_greeting",
+    "description": "向配置的飞书社交群发送一条随机或自定义的社交问候，可选择性地 @ 指定成员。用于主动问候群聊或开启对话。",
+    "parameters": {"type": "object", "properties": {
+      "message": {"type": "string", "description": "可选的自定义问候语。不传则使用随机问候语。"},
+      "mention_name": {"type": "string", "description": "要 @ 的人名。不传则使用默认。"}},
+      "required": []}}
   }
 ]

@@ -69,5 +69,20 @@
     "name": "start_long_term_update",
     "description": "Start distilling long-term memory. Call when discovering info worth remembering (env facts/user prefs/lessons learned). Skip if memory already updated or in autonomous flow. Must call when a task that took 15+ turns is completed",
     "parameters": {"type": "object", "properties": {}}}
+  },
+  {"type": "function", "function": {
+    "name": "send_group_message",
+    "description": "Actively send a text message to the Feishu social group. Use this to proactively post announcements, updates, or notifications to the group chat.",
+    "parameters": {"type": "object", "properties": {
+      "text": {"type": "string", "description": "The message text content to send to the group"}},
+      "required": ["text"]}}
+  },
+  {"type": "function", "function": {
+    "name": "send_social_greeting",
+    "description": "Send a random or custom social greeting to the configured Feishu group chat, with optional @mention for a specific person. Use this to proactively greet the group or start a conversation.",
+    "parameters": {"type": "object", "properties": {
+      "message": {"type": "string", "description": "Optional custom greeting text. Omit for a random greeting."},
+      "mention_name": {"type": "string", "description": "Name of the person to @mention. Omit for default."}},
+      "required": []}}
   }
 ]
