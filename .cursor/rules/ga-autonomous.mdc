@@ -1,0 +1,35 @@
+---
+description: GA Autonomous Operation SOP Quick Reference
+globs: **/*.py,**/*.md
+alwaysApply: false
+---
+# 自主行动 快速参考
+
+## 关键SOP: `memory/autonomous_operation_sop.md`
+## 辅助SOP: `memory/goal_mode_sop.md` + `memory/supervisor_sop.md`
+
+## 启动流程
+1. update_working_checkpoint: 设置任务上下文
+2. code_run 设置 _done_hooks: 收尾重读SOP
+3. 读取历史 + TODO → 选择任务
+
+## 约束
+- 单次只做1个TODO (禁止连续2次相同子任务)
+- ≤30 turns (P0≤40)
+- cwd内自由操作
+- 修改memory需报告待审
+- 绝对禁止: 读密钥、改核心代码、不可逆破坏
+
+## 收尾流程
+1. complete_task(title, historyline, report_path)
+2. set_todo() 标记[x]完成
+3. 结束留TODO下次做
+
+## 报告路径
+`./autonomous_reports/RXX_简短描述.md`
+XX从history.txt自增推断
+
+## R11: Subagent Delegation 已完成
+- delegation.py (196行) 实现并行subagent
+- ga.py 路径修复 (5行)
+- ≥2 subagent 并行启动+stdout聚合

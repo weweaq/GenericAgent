@@ -1,0 +1,40 @@
+---
+description: GA SOP Master Index - maps task types to SOP files in memory/
+globs: **/*.py,**/*.md,**/*
+alwaysApply: true
+---
+# GA SOP 主索引 (GenericAgent Standard Operating Procedures)
+
+当需要执行特定类型任务时，优先查阅对应SOP：
+
+## 任务→SOP映射表
+
+| 任务类型 | SOP文件 | 说明 |
+|---------|---------|------|
+| Web自动化/浏览器操作 | `memory/tmwebdriver_sop.md` | 文件上传/图搜/PDF/CDP/iframe |
+| 键鼠控制/窗口操作 | `memory/ljqCtrl_sop.md` + `memory/ljqCtrl.py` | 禁pyautogui,用win32gui |
+| 视觉识别/截图OCR | `memory/vision_sop.md` + `memory/ocr_utils.py` | 禁全屏截图,优先窗口 |
+| 错误恢复/重试熔断 | `memory/error_recovery_sop.md` + `memory/recovery_utils.py` | 重试/熔断/编码修复 |
+| 自主行动/后台任务 | `memory/autonomous_operation_sop.md` | 定时任务/无监督执行 |
+| 任务规划/长链任务 | `memory/plan_sop.md` | 复杂超长任务必读 |
+| 目标管理/监督 | `memory/goal_mode_sop.md` + `memory/supervisor_sop.md` | 目标分解/监督执行 |
+| Git贡献/代码提交 | `memory/github_contribution_sop.md` | 完整Git闭环 |
+| 记忆管理/META-SOP | `memory/memory_management_sop.md` | 写记忆前必读 |
+| 编码兼容/文件IO | `memory/encoding_utils.py` | GBK/UTF-8透明转换 |
+| 网络请求/新闻搜索 | `memory/news_fetch_sop.md` | 百度搜索/国内源 |
+| 进程内存扫描 | `memory/procmem_scanner_sop.md` | 进程诊断 |
+| Vue3组件开发 | `memory/vue3_component_sop.md` | 前端组件 |
+| Subagent委托 | `memory/subagent.md` | 并行子代理 |
+| 验证核实 | `memory/verify_sop.md` | 交叉验证 |
+
+## 核心原则 (CONSTITUTION)
+1. 改自身源码先请示; temp/可自主实验
+2. 有SOP/utils必用; 未查证不断言
+3. 分步执行,控制粒度,限制失败半径; 3次失败请求干预
+4. 密钥文件仅引用,不读取/移动
+5. 写任何记忆前读META-SOP核验
+
+## 搜索规则
+- 文件名搜索: 用Everything(es命令), PATH实时同步
+- Web搜索: 优先google,禁duckduckgo
+- 路径: 优先看cwd,禁猜路径

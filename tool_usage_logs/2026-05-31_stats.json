@@ -1,0 +1,33 @@
+{
+  "date": "2026-05-31",
+  "summary": {
+    "total_records": 161,
+    "auto_records": 161,
+    "manual_records": 0,
+    "unique_tools": 5,
+    "unique_sops": 2,
+    "success_count": 161,
+    "error_count": 0,
+    "warning_count": 0,
+    "success_rate": "161/161 (100%)"
+  },
+  "tools": {
+    "file_read": 72,
+    "code_run": 62,
+    "no_tool": 19,
+    "file_patch": 5,
+    "update_working_checkpoint": 3
+  },
+  "tool_results": {
+    "file_read:success": 72,
+    "code_run:success": 62,
+    "no_tool:success": 19,
+    "file_patch:success": 5,
+    "update_working_checkpoint:success": 3
+  },
+  "sops": {
+    "codegraph_sop": 2,
+    "tool_usage_log_sop": 1
+  },
+  "scenarios": {}
+}

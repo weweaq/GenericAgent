@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Trending 追踪</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://unpkg.com/@vuepic/vue-datepicker@9.0.3/dist/vue-datepicker.umd.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 导航 -->
+        <header class="header">
+            <div class="container header-inner">
+                <h1 class="logo">📈 GitHub Trending</h1>
+                <nav class="nav">
+                    <button :class="{active: tab === 'today'}" @click="tab='today'">📋 今日榜单</button>
+                    <button :class="{active: tab === 'history'}" @click="tab='history'">📚 历史回顾</button>
+                    <button :class="{active: tab === 'report'}" @click="tab='report'">📊 趋势分析</button>
+                </nav>
+                <button class="refresh-btn" @click="refreshData" :disabled="loading">
+                    {{ loading ? '⟳ 刷新中...' : '🔄 刷新' }}
+                </button>
+            </div>
+        </header>
+
+        <main class="container">
+            <!-- 今日榜单 -->
+            <section v-if="tab === 'today'">
+                <div class="date-badge">📅 {{ todayData.date || '加载中...' }}</div>
+                <div v-if="loading" class="loading">⏳ 正在抓取 GitHub Trending...</div>
+                <div v-else-if="error" class="error">❌ {{ error }}</div>
+                <div v-else>
+                    <div v-for="p in todayData.projects" :key="p.id || p.name" class="project-card">
+                        <div class="card-header">
+                            <span class="rank">#{{ todayData.projects.indexOf(p) + 1 }}</span>
+                            <a :href="p.url" target="_blank" class="project-name">{{ p.name }}</a>
+                            <span class="lang-badge" v-if="p.language">{{ p.language }}</span>
+                        </div>
+                        
+                        <p class="description">{{ p.description || '暂无描述' }}</p>
+                        
+                        <div class="stats">
+                            <span class="stat">⭐ {{ formatNum(p.stars) }}</span>
+                            <span class="stat">🍴 {{ formatNum(p.forks) }}</span>
+                            <span class="stat hot">📈 +{{ formatNum(p.stars_today) }} today</span>
+                        </div>
+
+                        <!-- 📊 仓库概览 - 可折叠详情 -->
+                        <div class="details-section">
+                            <button class="details-toggle" @click="p._showDetails = !p._showDetails">
+                                <span v-if="hasDetails(p)">📊 仓库概览</span>
+                                <span v-else>📊 仓库概览</span>
+                                <span class="toggle-arrow">{{ p._showDetails ? '▲' : '▼' }}</span>
+                            </button>
+                            <div v-if="p._showDetails" class="details-panel">
+                                <table class="details-table">
+                                    <tr v-if="getDetail(p, 'license')">
+                                        <td class="detail-icon">📝</td>
+                                        <td class="detail-label">License</td>
+                                        <td class="detail-value">{{ getDetail(p, 'license') }}</td>
+                                    </tr>
+                                    <tr v-if="getDetail(p, 'topics') && getDetail(p, 'topics').length">
+                                        <td class="detail-icon">🏷️</td>
+                                        <td class="detail-label">标签</td>
+                                        <td class="detail-value">
+                                            <span v-for="t in getDetail(p, 'topics')" class="topic-tag-inline">{{ t }}</span>
+                                        </td>
+                                    </tr>
+                                    <tr v-if="getDetail(p, 'latest_release')">
+                                        <td class="detail-icon">📦</td>
+                                        <td class="detail-label">最新版</td>
+                                        <td class="detail-value">
+                                            {{ getDetail(p, 'latest_release') }}
+                                            <span v-if="getDetail(p, 'latest_release_date')" class="release-date">
+                                                ({{ getDetail(p, 'latest_release_date') }})
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr v-if="getDetail(p, 'homepage')">
+                                        <td class="detail-icon">🌐</td>
+                                        <td class="detail-label">官网</td>
+                                        <td class="detail-value">
+                                            <a :href="getDetail(p, 'homepage')" target="_blank">{{ getDetail(p, 'homepage') }}</a>
+                                        </td>
+                                    </tr>
+                                    <tr v-if="getDetail(p, 'contributors')">
+                                        <td class="detail-icon">👥</td>
+                                        <td class="detail-label">贡献者</td>
+                                        <td class="detail-value">{{ formatNum(getDetail(p, 'contributors')) }} 人</td>
+                                    </tr>
+                                    <tr v-if="getDetail(p, 'watching')">
+                                        <td class="detail-icon">👀</td>
+                                        <td class="detail-label">关注</td>
+                                        <td class="detail-value">{{ formatNum(getDetail(p, 'watching')) }} watching</td>
+                                    </tr>
+                                    <tr v-if="getDetail(p, 'open_issues') !== null && getDetail(p, 'open_issues') !== undefined">
+                                        <td class="detail-icon">📋</td>
+                                        <td class="detail-label">Issues</td>
+                                        <td class="detail-value">{{ formatNum(getDetail(p, 'open_issues')) }} open</td>
+                                    </tr>
+                                    <tr v-if="getDetail(p, 'open_prs')">
+                                        <td class="detail-icon">🔄</td>
+                                        <td class="detail-label">PRs</td>
+                                        <td class="detail-value">{{ formatNum(getDetail(p, 'open_prs')) }} open</td>
+                                    </tr>
+                                    <tr v-if="getDetail(p, 'commits')">
+                                        <td class="detail-icon">💾</td>
+                                        <td class="detail-label">Commits</td>
+                                        <td class="detail-value">{{ formatNum(getDetail(p, 'commits')) }} commits</td>
+                                    </tr>
+                                    <tr v-if="getDetail(p, 'default_branch')">
+                                        <td class="detail-icon">🔀</td>
+                                        <td class="detail-label">默认分支</td>
+                                        <td class="detail-value">
+                                            {{ getDetail(p, 'default_branch') }}
+                                            <span v-if="getDetail(p, 'branches')"> · {{ getDetail(p, 'branches') }} 分支</span>
+                                            <span v-if="getDetail(p, 'tags')"> · {{ getDetail(p, 'tags') }} 标签</span>
+                                        </td>
+                                    </tr>
+                                    <tr v-if="hasLangPct(p)">
+                                        <td class="detail-icon">🖥️</td>
+                                        <td class="detail-label">语言占比</td>
+                                        <td class="detail-value">
+                                            <div class="lang-mini-bar">
+                                                <div v-for="(pct, lang) in getDetail(p, 'language_pct')" 
+                                                     :key="lang"
+                                                     class="lang-mini-seg"
+                                                     :style="{width: pct, background: getLangColor(lang)}"
+                                                     :title="lang + ': ' + pct"></div>
+                                            </div>
+                                            <div class="lang-mini-labels">
+                                                <span v-for="(pct, lang) in getDetail(p, 'language_pct')" :key="lang" class="lang-mini-item">
+                                                    {{ lang }} {{ pct }}
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="tags">
+                            <span class="tag category">{{ p.category }}</span>
+                            <span class="tag heat">{{ p.heat_level }}</span>
+                            <span class="tag growth">{{ p.growth_level }}</span>
+                        </div>
+                        
+                        <!-- AI 分析 -->
+                        <div class="ai-analysis">
+                            <div class="ai-header">🤖 AI 分析</div>
+                            <div class="ai-content" v-if="p.ai_summary" v-html="renderMarkdown(p.ai_summary)"></div>
+                            <div class="ai-content-empty" v-else>⚠️ AI分析尚未生成，等待定时任务自动完成</div>
+                            <div class="ai-rating" v-if="p.ai_rating">
+                                AI推荐指数: 
+                                <span class="stars">{{ '⭐'.repeat(Math.round(p.ai_rating/2)) }} {{ p.ai_rating }}/10</span>
+                            </div>
+                        </div>
+                        
+                        <!-- 评分区 -->
+                        <div class="rating-section">
+                            <div class="rating-header">
+                                <span>⭐ 你的评价</span>
+                            </div>
+                            <div class="rating-form" v-if="!p._rated">
+                                <div class="star-selector">
+                                    <span v-for="s in 10" :key="s" 
+                                          :class="['star-option', {active: p._tempRating >= s}]"
+                                          @click="p._tempRating = s"
+                                          @mouseover="p._hoverRating = s"
+                                          @mouseleave="p._hoverRating = 0">
+                                        {{ (p._hoverRating || p._tempRating) >= s ? '⭐' : '☆' }}
+                                    </span>
+                                    <span class="rating-value" v-if="p._tempRating">{{ p._tempRating }}/10</span>
+                                </div>
+                                <input v-model="p._comment" class="comment-input" placeholder="写下你的评论..." @keyup.enter="submitRating(p)">
+                                <button class="submit-btn" @click="submitRating(p)" :disabled="!p._tempRating">提交</button>
+                            </div>
+                            <div v-else class="rated-msg">
+                                ✅ 你已评分: {{ p._userRating }}/10 | {{ p._userComment || '无评论' }}
+                            </div>
+                            <!-- 历史评分 -->
+                            <div v-if="p.user_ratings && p.user_ratings.length > 0 && !p._rated" class="history-ratings">
+                                历史评分: 
+                                <span v-for="r in p.user_ratings" class="history-rating">
+                                    {{ r.rating }}/10 {{ r.comment ? '· ' + r.comment : '' }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 历史回顾 -->
+            <section v-if="tab === 'history'">
+                <div v-if="historyLoading" class="loading">⏳ 加载历史数据...</div>
+                <div v-else-if="historyData.length === 0" class="empty">
+                    📭 暂无历史数据，今天第一次运行
+                </div>
+                <div v-else>
+                    <div v-for="day in historyData" :key="day.date" class="history-day">
+                        <div class="day-header" @click="day._expanded = !day._expanded">
+                            <span class="day-date">📅 {{ day.date }}</span>
+                            <span class="day-count">{{ day.projects.length }} 个项目</span>
+                            <span class="expand-icon">{{ day._expanded ? '▼' : '▶' }}</span>
+                        </div>
+                        <div v-if="day._expanded" class="day-content">
+                            <!-- 当日报告 -->
+                            <div v-if="day.report" class="mini-report">
+                                <div class="report-summary" v-html="renderMarkdown(day.report.summary)"></div>
+                                <div class="report-pred" v-if="day.report.prediction">
+                                    🔮 <strong>预测</strong>: {{ day.report.prediction }}
+                                </div>
+                            </div>
+                            <!-- 项目列表 -->
+                            <div v-for="p in day.projects" :key="p.id" class="mini-project">
+                                <a :href="p.url" target="_blank" class="mini-name">{{ p.name }}</a>
+                                <span class="mini-stars">⭐{{ formatNum(p.stars) }}</span>
+                                <span class="mini-lang" v-if="p.language">{{ p.language }}</span>
+                                <span v-if="p.user_ratings && p.user_ratings.length" class="mini-rating">
+                                    评分: {{ p.user_ratings.map(r => r.rating+'/10').join(', ') }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 趋势分析 -->
+            <section v-if="tab === 'report'">
+                <div v-if="reportLoading" class="loading">⏳ 加载分析报告...</div>
+                <div v-else class="report-container">
+                    <!-- 今日报告 -->
+                    <div class="report-card">
+                        <h2>📋 今日报告</h2>
+                        <div v-if="todayReport" class="report-body" v-html="renderMarkdown(todayReport.summary)"></div>
+                        <div v-else class="empty">暂无数据</div>
+                    </div>
+                    
+                    <div class="report-card">
+                        <h2>🔮 趋势预测</h2>
+                        <div v-if="todayReport" class="pred-body">{{ todayReport.prediction }}</div>
+                        <div v-else class="empty">暂无数据</div>
+                    </div>
+
+                    <!-- 语言统计图 -->
+                    <div v-if="langStats.length" class="report-card">
+                        <h2>📊 语言分布</h2>
+                        <div class="lang-chart">
+                            <div v-for="item in langStats" :key="item.name" class="lang-bar-row">
+                                <span class="lang-label">{{ item.name }}</span>
+                                <div class="bar-bg">
+                                    <div class="bar-fill" :style="{width: item.pct+'%'}" 
+                                         :class="'lang-'+item.name.toLowerCase()"></div>
+                                </div>
+                                <span class="lang-count">{{ item.count }}个</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 历史趋势 -->
+                    <div v-if="historyByDate.length > 1" class="report-card">
+                        <h2>📈 每日项目数趋势</h2>
+                        <div class="simple-chart">
+                            <div v-for="(item, idx) in historyByDate" :key="item.date" class="chart-col">
+                                <div class="chart-bar" :style="{height: (item.count/10)+'px'}"></div>
+                                <div class="chart-label">{{ item.date.slice(5) }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>GitHub Trending Tracker · 数据来源: <a href="https://github.com/trending" target="_blank">github.com/trending</a></p>
+                <p>由大大怪将军的AI雇佣军驱动 🤘</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

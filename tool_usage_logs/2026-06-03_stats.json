@@ -1,0 +1,32 @@
+{
+  "date": "2026-06-03",
+  "summary": {
+    "total_records": 64,
+    "auto_records": 64,
+    "manual_records": 0,
+    "unique_tools": 6,
+    "unique_sops": 0,
+    "success_count": 64,
+    "error_count": 0,
+    "warning_count": 0,
+    "success_rate": "64/64 (100%)"
+  },
+  "tools": {
+    "file_read": 28,
+    "code_run": 23,
+    "no_tool": 5,
+    "web_scan": 5,
+    "web_execute_js": 2,
+    "update_working_checkpoint": 1
+  },
+  "tool_results": {
+    "file_read:success": 28,
+    "code_run:success": 23,
+    "no_tool:success": 5,
+    "web_scan:success": 5,
+    "web_execute_js:success": 2,
+    "update_working_checkpoint:success": 1
+  },
+  "sops": {},
+  "scenarios": {}
+}

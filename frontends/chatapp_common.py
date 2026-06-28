@@ -1,4 +1,5 @@
 import ast, asyncio, glob, json, os, queue as Q, re, socket, sys, time
+import psutil
 
 # 确保能导入上级目录的模块（如 agentmain）
 _parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -17,6 +18,7 @@ HELP_COMMANDS = (
     ("/review [scope]", "in-session code review; 默认审当前 git diff"),
     ("/llm", "查看当前模型列表"),
     ("/llm [n]", "切换到第 n 个模型"),
+    ("/reboot", "重启当前渠道服务"),
 )
 TELEGRAM_MENU_COMMANDS = (
     ("help", "显示帮助"),
@@ -28,6 +30,7 @@ TELEGRAM_MENU_COMMANDS = (
     ("btw", "临时插问主 agent 进展，不打断主线"),
     ("review", "in-session code review；/review scope 指定范围"),
     ("llm", "查看模型列表；/llm n 切换到指定模型"),
+    ("reboot", "重启当前渠道服务"),
 )
 
 
@@ -314,6 +317,25 @@ class AgentChatMixin:
             return await self.send_text(chat_id, answer, **ctx)
         if op == "/review":
             return await self.run_agent(chat_id, cmd, **ctx)
+        if op == "/reboot":
+            await self.send_text(chat_id, "🔄 正在重启当前渠道，请稍候...", **ctx)
+            # 用 psutil 获取当前进程的完整命令行（比 sys.argv 更可靠）
+            try:
+                p_self = psutil.Process(os.getpid())
+                full_cmdline = p_self.cmdline()
+                print(f"[{self.label}] reboot: cmdline={full_cmdline}")
+            except Exception as e:
+                full_cmdline = [sys.executable] + sys.argv
+                print(f"[{self.label}] reboot: psutil failed, fallback={full_cmdline}, error={e}")
+            # 启动新进程
+            subprocess.Popen(
+                full_cmdline,
+                close_fds=True, creationflags=subprocess.CREATE_NO_WINDOW,
+                cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            )
+            # 延时一小段让消息发出去再退出
+            await asyncio.sleep(1)
+            os._exit(0)
         return await self.send_text(chat_id, HELP_TEXT, **ctx)
 
     async def run_agent(self, chat_id, text, **ctx):

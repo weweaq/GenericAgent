@@ -1,0 +1,50 @@
+{
+  "date": "2026-06-07",
+  "summary": {
+    "total_records": 479,
+    "auto_records": 479,
+    "manual_records": 0,
+    "unique_tools": 11,
+    "unique_sops": 7,
+    "success_count": 479,
+    "error_count": 0,
+    "warning_count": 0,
+    "success_rate": "479/479 (100%)"
+  },
+  "tools": {
+    "code_run": 165,
+    "file_read": 128,
+    "no_tool": 45,
+    "web_execute_js": 41,
+    "file_patch": 37,
+    "web_scan": 23,
+    "file_write": 19,
+    "update_working_checkpoint": 14,
+    "send_group_message": 3,
+    "ask_user": 2,
+    "start_long_term_update": 2
+  },
+  "tool_results": {
+    "code_run:success": 165,
+    "file_read:success": 128,
+    "no_tool:success": 45,
+    "web_execute_js:success": 41,
+    "file_patch:success": 37,
+    "web_scan:success": 23,
+    "file_write:success": 19,
+    "update_working_checkpoint:success": 14,
+    "send_group_message:success": 3,
+    "ask_user:success": 2,
+    "start_long_term_update:success": 2
+  },
+  "sops": {
+    "superpowers_sop": 4,
+    "plan_sop": 3,
+    "scheduled_task_sop": 2,
+    "verify_sop": 1,
+    "news_fetch_sop": 1,
+    "vue3_component_sop": 1,
+    "web_setup_sop": 1
+  },
+  "scenarios": {}
+}

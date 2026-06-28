@@ -1,0 +1,27 @@
+---
+description: GA Web Automation SOP Quick Reference
+globs: **/*.py
+alwaysApply: false
+---
+# Web自动化快速参考
+
+## 工具
+- `web_scan`: 获取简化HTML + tab列表 (hidden/floating元素已移除)
+- `web_execute_js`: 执行JS,支持多tab,script参数或代码块
+
+## 关键SOP: `memory/tmwebdriver_sop.md`
+支持: 文件上传/图搜/PDF blob/物理坐标/HttpOnly Cookie/autofill突破/跨域iframe/CDP/跨tab
+
+## 关键SOP: `memory/web_setup_sop.md`
+浏览器设置和初始化
+
+## 输入规则 (CRITICAL)
+1. 输入用原生setter+事件链: `el.value='xxx'; el.dispatchEvent(new Event('input'))`
+2. 点击前检查disabled属性
+3. 注意JS引号转义
+4. web_scan空/不全: 先等待再scan,禁止首扫定论
+
+## 常见错误
+- CDP fallback failed: 浏览器未打开,需先打开浏览器
+- iframe跨域: 用CDP模式
+- 文件上传: 用tmwebdriver_sop中的物理路径方法

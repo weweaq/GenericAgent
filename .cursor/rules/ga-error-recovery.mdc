@@ -1,0 +1,36 @@
+---
+description: GA Error Recovery SOP Quick Reference
+globs: **/*.py
+alwaysApply: true
+---
+# 错误恢复 & 健壮性 快速参考
+
+## 关键SOP: `memory/error_recovery_sop.md`
+## 关键工具: `memory/recovery_utils.py` (14KB/290行)
+## 编码修复: `memory/encoding_utils.py`
+
+## 重试策略
+1. 1次失败 → 读取错误日志,理解原因
+2. 2次失败 → 探测环境状态(日志/进程/文件)
+3. 3次失败 → 深度分析后换方案或请求用户干预
+4. 禁止无新信息的重复操作
+
+## recovery_utils 能力
+- 重试装饰器 (指数退避/线性退避)
+- 熔断器 (3次失败后熔断30s)
+- 编码修复 (GBK/UTF-8自动转换)
+
+## 常见恢复场景
+| 问题 | 恢复方法 |
+|-----|---------|
+| UnicodeDecodeError | encoding_utils.safe_read() |
+| 网络超时 | recovery_utils.retry() |
+| 进程僵死 | procmem_scanner_sop诊断 |
+| Web工具失败 | 检查浏览器是否打开 |
+| 大文件截断 | robust_file_utils.safe_file_info() |
+
+## 新增: 健壮文件工具 (temp/robust_file_utils.py)
+- `safe_file_info(path)` - 探测文件属性(大小/行数/二进制检测)
+- `recommend_read_strategy(info)` - 返回推荐读取策略
+- 二进制检测: NULL字节>5% → 标记binary
+- 大文件检测: >5000行 → 分页建议

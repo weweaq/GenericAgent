@@ -1,0 +1,34 @@
+---
+description: GA Vision and OCR SOP Quick Reference
+globs: **/*.py
+alwaysApply: false
+---
+# Vision & OCR 快速参考
+
+## 工具优先级
+1. `ocr_utils.py` - 快速OCR (<10s), 适合文本提取
+2. `vision_sop.py` / `vision_api.py` - 视觉理解 (18-44s), 适合布局/UI理解
+3. `screen_search.py` - 屏幕搜索
+
+## 关键SOP: `memory/vision_sop.md`
+- 禁全屏截图,优先窗口截图
+- 键鼠控制用`ljqCtrl_sop` (禁止pyautogui, 先activate窗口)
+
+## 关键SOP: `memory/ocr_utils.py`
+- OCR工具集,支持中文
+
+## 关键SOP: `memory/screen_search.py`
+- 屏幕内容搜索定位
+
+## 对比 (R2实测)
+| 能力 | Vision | OCR |
+|-----|--------|-----|
+| 布局理解 | ✅ 全胜 | ❌ 漏检 |
+| 速度 | 18-44s | 4-10s |
+| 文本提取 | 准确但慢 | 快但碎片化 |
+
+## 决策矩阵
+- 需要理解UI布局 → Vision
+- 只需提取文本 → OCR
+- 定位元素位置 → Vision
+- 验证文本内容 → OCR (快)

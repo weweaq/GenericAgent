@@ -1,0 +1,2621 @@
+[
+  {
+    "timestamp": "2026-05-31 22:20:00",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type"
+    ],
+    "args_summary": {
+      "type": "python",
+      "timeout": 30
+    },
+    "result": "success",
+    "turn": 5
+  },
+  {
+    "timestamp": "2026-05-31 22:20:00",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type"
+    ],
+    "args_summary": {
+      "type": "python",
+      "timeout": 30
+    },
+    "result": "success",
+    "turn": 5
+  },
+  {
+    "timestamp": "2026-05-31 22:16:53",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\dadaguai_bond.md"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:16:54",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<532 chars>"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:17:01",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<558 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:17:02",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<639 chars>"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:17:04",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\temp\\model_responses\\model_responses_582923.txt",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:17:04",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\temp\\tmpxkzzfu87.ai.py",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:17:08",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\tui_v3.py",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:17:08",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\temp\\tmpgrojtuj7.ai.py",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:17:17",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<1016 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:17:18",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<418 chars>"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:17:24",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<712 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:17:25",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<564 chars>"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:17:35",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<1687 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:17:40",
+    "source": "auto_hook",
+    "tool_name": "update_working_checkpoint",
+    "args_keys": [
+      "key_info",
+      "related_sop",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "key_info": "tui3=frontends/tui_v3.py，缺失核心依赖prompt_toolkit（所有import均为懒加载，模块级导入不报错，但运行时调用promp...",
+      "related_sop": "vue3_component_sop"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:17:42",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\vue3_component_sop"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:17:44",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\vue3_component_sop.md",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:17:50",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:18:18",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\codegraph_sop.md"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:18:18",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\codegraph_utils.py",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:18:23",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<380 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:18:29",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<401 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:18:38",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:19:28",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<344 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:19:32",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<419 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:19:35",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:19:51",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log.py",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:19:52",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<136 chars>"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:19:59",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<370 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:20:00",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<994 chars>"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:20:04",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:21:05",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\plugins\\tool_usage_logger.py",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:21:05",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log_analyzer.py",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:21:10",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log_analyzer.py",
+      "start": 100
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:21:10",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log.py",
+      "start": 60
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:21:17",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:23:03",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\plugins\\tool_usage_logger.py",
+      "start": 100
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:23:03",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\plugins\\__init__.py"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:23:07",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\plugins\\tool_usage_logger.py"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:23:07",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log_analyzer.py"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:23:19",
+    "source": "auto_hook",
+    "tool_name": "update_working_checkpoint",
+    "args_keys": [
+      "key_info",
+      "related_sop",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "key_info": "修改tool_usage_logger.py: 加_detect_sops识别file_read的SOP路径, _update_stats每次调用后更新stat...",
+      "related_sop": "tool_usage_log_sop"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:23:22",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log_sop.md"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:23:25",
+    "source": "auto_hook",
+    "tool_name": "file_patch",
+    "args_keys": [
+      "path",
+      "old_content",
+      "new_content",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\plugins\\tool_usage_logger.py",
+      "old_content": "<36 chars>",
+      "new_content": "<40 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:23:31",
+    "source": "auto_hook",
+    "tool_name": "file_patch",
+    "args_keys": [
+      "path",
+      "old_content",
+      "new_content",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\plugins\\tool_usage_logger.py",
+      "old_content": "<108 chars>",
+      "new_content": "<1532 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:23:34",
+    "source": "auto_hook",
+    "tool_name": "file_patch",
+    "args_keys": [
+      "path",
+      "old_content",
+      "new_content",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\plugins\\tool_usage_logger.py",
+      "old_content": "<439 chars>",
+      "new_content": "<653 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:23:40",
+    "source": "auto_hook",
+    "tool_name": "file_patch",
+    "args_keys": [
+      "path",
+      "old_content",
+      "new_content",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log_analyzer.py",
+      "old_content": "<388 chars>",
+      "new_content": "<545 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:23:42",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\plugins\\tool_usage_logger.py"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:23:47",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log_analyzer.py",
+      "start": 42,
+      "count": 25
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:23:48",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<1207 chars>"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:23:56",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<369 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:24:03",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<855 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:24:07",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<554 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:24:12",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:25:49",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\tui_v3.py"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:25:51",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "keyword",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\tui_v3.py",
+      "keyword": "needs a real TTY"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:25:53",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "keyword",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\tui_v3.py",
+      "keyword": "real TTY"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:25:53",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "keyword",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\tui_v3.py",
+      "keyword": "isatty"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:25:53",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "keyword",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\tui_v3.py",
+      "keyword": "sys.stdin"
+    },
+    "result": "success",
+    "turn": 3
+  },
+  {
+    "timestamp": "2026-05-31 22:25:59",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<208 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:26:04",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\stapp.py",
+      "count": 30
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:26:04",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\fsapp.py",
+      "count": 30
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:26:08",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\tuiapp.py",
+      "count": 30
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:26:08",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "keyword",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\stapp.py",
+      "keyword": "streamlit run"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:26:15",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:26:44",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:27:04",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "../memory/tool_usage_log_analyzer.py",
+      "count": 50
+    },
+    "result": "success",
+    "turn": 1,
+    "sop_names": []
+  },
+  {
+    "timestamp": "2026-05-31 22:27:06",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "../memory/tool_usage_log.py",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 1,
+    "sop_names": []
+  },
+  {
+    "timestamp": "2026-05-31 22:27:07",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<191 chars>"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:27:10",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log.py",
+      "count": 50
+    },
+    "result": "success",
+    "turn": 1,
+    "sop_names": []
+  },
+  {
+    "timestamp": "2026-05-31 22:27:13",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log_analyzer.py",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 1,
+    "sop_names": []
+  },
+  {
+    "timestamp": "2026-05-31 22:27:15",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "cwd",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<347 chars>",
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\temp"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:27:18",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "cwd",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<313 chars>",
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\temp"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:27:23",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:28:27",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log_sop.md",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 1,
+    "sop_names": [
+      "tool_usage_log_sop"
+    ]
+  },
+  {
+    "timestamp": "2026-05-31 22:28:31",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "cwd",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<40 chars>",
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\temp"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:28:35",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "cwd",
+      "type",
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\temp",
+      "type": "powershell",
+      "script": "<43 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:28:39",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "cwd",
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\temp",
+      "script": "<553 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:28:44",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "cwd",
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\temp",
+      "script": "<590 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:28:48",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:31:10",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\tool_usage_logs\\2026-05-31_stats.json"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:31:16",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log_analyzer.py",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 1,
+    "sop_names": []
+  },
+  {
+    "timestamp": "2026-05-31 22:31:16",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\tool_usage_logs\\2026-05-31.csv",
+      "count": 60
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:31:19",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\tool_usage_logs\\2026-05-31.json",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:31:19",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\tool_usage_log.py",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 2,
+    "sop_names": []
+  },
+  {
+    "timestamp": "2026-05-31 22:31:22",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "keyword",
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "keyword": "sop_name",
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\tool_usage_logs\\2026-05-31.json",
+      "count": 200
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:31:22",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\plugins\\tool_usage_logger.py"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:31:38",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<583 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:31:55",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:33:02",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<269 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:33:12",
+    "source": "auto_hook",
+    "tool_name": "file_patch",
+    "args_keys": [
+      "path",
+      "old_content",
+      "new_content",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\plugins\\tool_usage_logger.py",
+      "old_content": "<440 chars>",
+      "new_content": "<394 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:33:25",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<1221 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:33:31",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<1419 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:33:34",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "cwd",
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent",
+      "script": "<40 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:33:37",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<302 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:33:39",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\tool_usage_logs\\2026-05-31_stats.json"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:33:44",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:13",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "cwd",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<7 chars>",
+      "type": "powershell",
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\temp"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:14",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<1034 chars>"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:35:18",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "cwd",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<338 chars>",
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:20",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "../memory/codegraph_sop.md",
+      "count": 50
+    },
+    "result": "success",
+    "turn": 1,
+    "sop_names": [
+      "codegraph_sop"
+    ]
+  },
+  {
+    "timestamp": "2026-05-31 22:35:22",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\codegraph_sop.md",
+      "count": 60
+    },
+    "result": "success",
+    "turn": 1,
+    "sop_names": [
+      "codegraph_sop"
+    ]
+  },
+  {
+    "timestamp": "2026-05-31 22:35:26",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "cwd",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<423 chars>",
+      "type": "powershell",
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:33",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "cwd",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<584 chars>",
+      "type": "powershell",
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:35",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\llmcore.py",
+      "start": 1,
+      "count": 150
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:38",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\llmcore.py",
+      "start": 150,
+      "count": 200
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:38",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\agent_loop.py",
+      "count": 200
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:35:42",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "cwd",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<169 chars>",
+      "type": "powershell",
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:46",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "cwd",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<497 chars>",
+      "type": "python",
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:48",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\llmcore.py",
+      "start": 740,
+      "count": 120
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:50",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\llmcore.py",
+      "start": 925,
+      "count": 139
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:50",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\ga_pipeline.py",
+      "count": 200
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 22:35:53",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\llmcore.py",
+      "start": 860,
+      "count": 70
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:57",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "cwd",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<551 chars>",
+      "type": "python",
+      "cwd": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:35:59",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\llmcore.py",
+      "start": 518,
+      "count": 85
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:36:06",
+    "source": "auto_hook",
+    "tool_name": "update_working_checkpoint",
+    "args_keys": [
+      "key_info",
+      "related_sop",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "key_info": "上下文窗口控制全貌已整理：BaseSession(history+context_win)→trim_messages_history→compress_his...",
+      "related_sop": "llmcore.py(38-69,95-108,518-577,823-838), agent_loop.py(42-107)"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:36:17",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 22:43:37",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:33:53",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<64 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:33:58",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<129 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:34:01",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<455 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:34:02",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<89 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 3
+  },
+  {
+    "timestamp": "2026-05-31 23:34:05",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<128 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:34:05",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\package.json"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:34:08",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\index.ts",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:34:08",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\transport.ts"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:34:08",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\engine.ts"
+    },
+    "result": "success",
+    "turn": 3
+  },
+  {
+    "timestamp": "2026-05-31 23:34:11",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\session.ts"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:34:11",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\daemon.ts"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:34:13",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\tools.ts",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:34:13",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\proxy.ts",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:34:29",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:37:38",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<96 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:37:38",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\transport.ts",
+      "start": 200,
+      "count": 100
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:37:43",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\conductor.py",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:37:43",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\frontends\\continue_cmd.py",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:37:50",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<198 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:37:51",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<179 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:37:53",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\agentmain.py",
+      "start": 129,
+      "count": 200
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:37:59",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<481 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:38:15",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:43:42",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\daemon.ts",
+      "start": 200,
+      "count": 100
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:43:46",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\index.ts",
+      "start": 100,
+      "count": 150
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:43:51",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<200 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:44:56",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<839 chars>",
+      "type": "python"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:45:01",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<1025 chars>",
+      "type": "python"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:45:15",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:49:11",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<264 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:49:11",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\index.ts",
+      "start": 240,
+      "count": 120
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:49:21",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<2515 chars>",
+      "type": "python"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:49:28",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<1464 chars>",
+      "type": "python"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:49:38",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:51:02",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<178 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:51:03",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<316 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:51:06",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\daemon-paths.ts"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:51:06",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\index.ts",
+      "start": 340,
+      "count": 113
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:51:11",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\proxy.ts",
+      "start": 80,
+      "count": 166
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:51:12",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<316 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-05-31 23:51:17",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<132 chars>",
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:51:18",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "start",
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "start": 160,
+      "path": "D:\\AAAmyPrj\\github\\codegraph\\src\\mcp\\index.ts",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-05-31 23:51:32",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  }
+]

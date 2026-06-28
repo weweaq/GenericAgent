@@ -1,0 +1,1031 @@
+[
+  {
+    "timestamp": "2026-06-03 22:32:23",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "../memory/global_mem_insight.txt"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:32:23",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "../memory/global_mem.txt"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:32:26",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\global_mem_insight.txt"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:32:26",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\global_mem.txt"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:32:26",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\memory\\dadaguai_bond.md"
+    },
+    "result": "success",
+    "turn": 3
+  },
+  {
+    "timestamp": "2026-06-03 22:32:32",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<115 chars>",
+      "timeout": 15
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:32:33",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<404 chars>",
+      "timeout": 15
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:32:34",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<474 chars>",
+      "timeout": 15
+    },
+    "result": "success",
+    "turn": 3
+  },
+  {
+    "timestamp": "2026-06-03 22:32:38",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\myrepos\\GenericAgent\\temp\\TODO.txt"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:32:39",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<504 chars>",
+      "timeout": 15
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:32:40",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<559 chars>",
+      "timeout": 15
+    },
+    "result": "success",
+    "turn": 3
+  },
+  {
+    "timestamp": "2026-06-03 22:32:51",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:35:22",
+    "source": "auto_hook",
+    "tool_name": "web_scan",
+    "args_keys": [
+      "text_only",
+      "switch_tab_id",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "text_only": true,
+      "switch_tab_id": "https://github.com/trending"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:35:32",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:37:45",
+    "source": "auto_hook",
+    "tool_name": "web_scan",
+    "args_keys": [
+      "switch_tab_id",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "switch_tab_id": "https://github.com/trending"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:37:51",
+    "source": "auto_hook",
+    "tool_name": "web_execute_js",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<64 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:37:58",
+    "source": "auto_hook",
+    "tool_name": "web_scan",
+    "args_keys": [
+      "text_only",
+      "switch_tab_id",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "text_only": true,
+      "switch_tab_id": "https://github.com/chopratejas/headroom"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:38:08",
+    "source": "auto_hook",
+    "tool_name": "web_execute_js",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<64 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:38:11",
+    "source": "auto_hook",
+    "tool_name": "web_scan",
+    "args_keys": [
+      "text_only",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "text_only": true
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:38:24",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:43:18",
+    "source": "auto_hook",
+    "tool_name": "web_scan",
+    "args_keys": [
+      "switch_tab_id",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "switch_tab_id": "https://github.com/chopratejas/headroom"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:43:22",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "type",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<86 chars>",
+      "type": "powershell",
+      "timeout": 120
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:44:59",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "type",
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "type": "powershell",
+      "script": "<81 chars>",
+      "timeout": 120
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:45:04",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "type",
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "type": "powershell",
+      "script": "<111 chars>",
+      "timeout": 15
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:47:08",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "type",
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "type": "powershell",
+      "script": "<114 chars>",
+      "timeout": 120
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:47:41",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<637 chars>",
+      "timeout": 90
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:47:45",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<351 chars>",
+      "timeout": 15
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:47:49",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\pyproject.toml",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:47:50",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<249 chars>",
+      "timeout": 10
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:47:50",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\Makefile",
+      "count": 50
+    },
+    "result": "success",
+    "turn": 3
+  },
+  {
+    "timestamp": "2026-06-03 22:47:54",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\headroom\\cli\\__init__.py",
+      "count": 60
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:47:54",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\README.md",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:47:58",
+    "source": "auto_hook",
+    "tool_name": "update_working_checkpoint",
+    "args_keys": [
+      "key_info",
+      "related_sop",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "key_info": "项目 headroom-ai: AI上下文压缩层, 减60-95% token, 支持library/proxy/wrap/MCP模式。Python3.10+。...",
+      "related_sop": "无"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:48:03",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "type",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<92 chars>",
+      "timeout": 180,
+      "type": "powershell"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:52:09",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "start",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\README.md",
+      "start": 85,
+      "count": 50
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:54:15",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<236 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:54:19",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<110 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:54:19",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\README.md",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:54:24",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\Cargo.toml"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:54:25",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<243 chars>"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:54:28",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\lib.rs"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:54:28",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\transforms\\mod.rs"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:54:28",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\compression_policy.rs"
+    },
+    "result": "success",
+    "turn": 3
+  },
+  {
+    "timestamp": "2026-06-03 22:54:32",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\transforms\\pipeline.rs",
+      "count": 200
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:54:32",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\transforms\\smart_crusher\\mod.rs"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:54:32",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\transforms\\smart_crusher\\orchestration.rs",
+      "count": 200
+    },
+    "result": "success",
+    "turn": 3
+  },
+  {
+    "timestamp": "2026-06-03 22:54:35",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\headroom\\transforms\\pipeline.py",
+      "count": 150
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:54:35",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\cache_control.rs",
+      "count": 150
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:54:35",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\ccr\\mod.rs"
+    },
+    "result": "success",
+    "turn": 3
+  },
+  {
+    "timestamp": "2026-06-03 22:54:38",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<252 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:54:38",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\transforms\\content_detector.rs",
+      "count": 120
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:54:41",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\headroom\\transforms\\content_router.py",
+      "count": 200
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:54:42",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<246 chars>"
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:54:46",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<382 chars>"
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:54:46",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\headroom\\__init__.py",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:55:13",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:57:09",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<439 chars>",
+      "timeout": 300
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:57:16",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<652 chars>",
+      "timeout": 20
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:58:57",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\transforms\\smart_crusher\\crusher.rs",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 22:58:57",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\transforms\\smart_crusher\\field_detect.rs",
+      "count": 100
+    },
+    "result": "success",
+    "turn": 2
+  },
+  {
+    "timestamp": "2026-06-03 22:58:57",
+    "source": "auto_hook",
+    "tool_name": "file_read",
+    "args_keys": [
+      "path",
+      "count",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "path": "D:\\AAAmyPrj\\github\\headroom\\headroom-main\\crates\\headroom-core\\src\\transforms\\smart_crusher\\outliers.rs",
+      "count": 80
+    },
+    "result": "success",
+    "turn": 3
+  },
+  {
+    "timestamp": "2026-06-03 22:59:24",
+    "source": "auto_hook",
+    "tool_name": "no_tool",
+    "args_keys": [
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {},
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 23:00:21",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<328 chars>",
+      "timeout": 200
+    },
+    "result": "success",
+    "turn": 1
+  },
+  {
+    "timestamp": "2026-06-03 23:00:31",
+    "source": "auto_hook",
+    "tool_name": "code_run",
+    "args_keys": [
+      "script",
+      "timeout",
+      "_index",
+      "_tool_num"
+    ],
+    "args_summary": {
+      "script": "<518 chars>",
+      "timeout": 40
+    },
+    "result": "success",
+    "turn": 1
+  }
+]
